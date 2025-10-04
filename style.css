@@ -11,7 +11,7 @@
 
 /* Line */
 .line {
-    margin: .3rem 0;
+    margin: .5rem 0;
     border: 1px solid gray;
 }
 
@@ -95,16 +95,20 @@
     display: flex;
     list-style: none;
 }
-
-.navbar li {
-    padding: .3rem 2rem;
-    font-size: 1.2rem;
+.navbar ul>li {
+    margin: .3rem 1rem;
+}
+.navbar ul>li>a {
+    padding: .5rem 3rem;
+    font-size: large;
     font-weight: bold;
     border: 1px solid black;
-
-}
-
-.navbar ul>li>a {
     text-decoration: none;
     color: black;
+}
+
+.navbar a.active {
+    color: white;
+    background-color: black;
+    border-radius: 10px;
 }
