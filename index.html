@@ -1,63 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friends Managment</title>
+    <title>Friends Management</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header class="header">
-        <div class="profile pointer">
-            <div class="">
+
+    <!-- Authentication container (login/register) -->
+    <main id="auth-container"></main>
+
+    <!-- App container (only visible when logged in) -->
+    <div id="app-container" style="display:none;">
+        <header class="header">
+            <div class="profile pointer">
                 <figure class="rounded">
                     <img src="./src/profile.png" alt="profile picture">
                 </figure>
+                <h2 id="user-name">User Name</h2>
             </div>
-            <h2 class="profile-name">
-                Bhupoti Kumar Roy
-            </h2>
-        </div>
-        <div class="search-bar">
-            <form action="" method="get">
-                <input type="text" placeholder="Search your friends" aria-label="Search Friends">
-                <button class="pointer rounded">
-                    <img src="./src/search.png" alt="">
-                </button>
-            </form>
-        </div>
-        <div class="header-right">
-            <div class="notification pointer">
-                <figure class="rounded">
-                    <img src="./src/notification.png" alt="Notification">
-                </figure>
+            <div class="search-bar">
+                <form>
+                    <input type="text" placeholder="Search your friends" aria-label="Search Friends">
+                    <button class="pointer rounded">
+                        <img src="./src/search.png" alt="Search">
+                    </button>
+                </form>
             </div>
-            <div class="message pointer">
-                <figure class="rounded">
-                    <img src="./src/chat.png" alt="Chat">
-                </figure>
+            <div class="header-right">
+                <div class="notification pointer">
+                    <figure class="rounded">
+                        <img src="./src/notification.png" alt="Notification">
+                    </figure>
+                </div>
+                <div class="message pointer">
+                    <figure class="rounded">
+                        <img src="./src/chat.png" alt="Chat">
+                    </figure>
+                </div>
+                <button class="btn pointer" id="logout-btn">Log Out</button>
             </div>
-            <button class="btn pointer">Log Out</button>
-        </div>
-    </header>
-    <nav class="navbar">
-        <ul class="">
-            <li><a href="#" data-page="home">Home</a></li>
-            <li><a href="#" data-page="friends">Friends</a></li>
-            <li><a href="#" data-page="public">Public</a></li>
-            <li><a href="#" data-page="profile">Profile</a></li>
-        </ul>
-    </nav>
-    <div class="line"></div>
-    <main id="content">
-        <h1>Hi, This is Home</h1>
-    </main>
+        </header>
 
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home" data-page="home">Home</a></li>
+                <li><a href="#friends" data-page="friends">Friends</a></li>
+                <li><a href="#public" data-page="public">Public</a></li>
+                <li><a href="#profile" data-page="profile">Profile</a></li>
+            </ul>
+        </nav>
+        <div class="line"></div>
 
-    <!-- Scripts -->
-    <script src="./scripts/script.js"></script>
+        <main id="content">
+            <!-- Dynamic content loads here -->
+        </main>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module" src="./scripts/firebase-init.js"></script>
+    <!-- App script -->
+    <script type="module" src="./scripts/script.js"></script>
 </body>
-
 </html>
