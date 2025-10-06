@@ -8,6 +8,8 @@ import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-
 import { bindLogout } from "./auth.js";
 import { loadProfilePage } from "./profile.js";
 import { loadPage, showUserData } from "./utils.js";
+import { loadPeoplePage } from "./people.js";
+import { loadFriendsPage } from "./friends.js";
 
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -34,9 +36,19 @@ window.addEventListener("DOMContentLoaded", () => {
 
             if (activePage === "profile") {
                 loadProfilePage();
-            } else {
+            }
+            else if (activePage === "people") {
+                await loadPage("people");
+                loadPeoplePage();
+            }
+            else if (activePage === "friends") {
+                await loadPage("friends");
+                loadFriendsPage();
+            }
+            else {
                 loadPage(activePage);
             }
+
         } else {
             loadPage("login");
         }
@@ -46,7 +58,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 // -------------------- Navigation --------------------
-document.addEventListener("click", (e) => {
+document.addEventListener("click", async (e) => {
     const link = e.target.closest("a[data-page]");
     if (!link) return;
     e.preventDefault();
@@ -54,11 +66,24 @@ document.addEventListener("click", (e) => {
     document.querySelectorAll("a[data-page]").forEach(a => a.classList.remove("active"));
     link.classList.add("active");
 
-    localStorage.setItem("activePage", link.dataset.page);
+    const page = link.dataset.page;
+    localStorage.setItem("activePage", page);
 
-    if (link.dataset.page === "profile") {
-        loadProfilePage();
-    } else {
-        loadPage(link.dataset.page);
+    if (page === "profile") {
+        await loadProfilePage();
+    }
+    else if (page === "people") {
+        // Wait for HTML to load first
+        await loadPage("people");
+        // Then initialize the JS for it
+        loadPeoplePage();
+    }
+    else if (page === "friends") {
+        await loadPage("friends");
+        loadFriendsPage();
+    }
+    else {
+        await loadPage(page);
     }
 });
+

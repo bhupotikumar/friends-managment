@@ -7,8 +7,6 @@ import {
 import { doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 
 import { loadPage } from "./utils.js";
-import { bindLogout } from "./auth.js";
-
 // -------------------- Profile Page --------------------
 export async function loadProfilePage() {
     await loadPage("profile");
@@ -93,7 +91,6 @@ function bindProfileEvents(user) {
         }
     });
 
-    bindLogout();
 }
 
 // -------------------- Show Profile Data --------------------

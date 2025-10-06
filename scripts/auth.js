@@ -82,11 +82,19 @@ export function bindAuthEvents(page) {
 }
 
 // -------------------- Logout --------------------
+// -------------------- Logout --------------------
 export function bindLogout() {
     const logOutButton = document.getElementById("logout-btn");
-    logOutButton?.addEventListener("click", async () => {
+    if (!logOutButton) {
+        console.warn("Logout button not found in DOM yet.");
+        return;
+    }
+
+    logOutButton.addEventListener("click", async () => {
         try {
             await signOut(auth);
+            alert("Logged out successfully!");
+            localStorage.removeItem("activePage");
             loadPage("login");
         } catch (err) {
             console.error("Logout error:", err);
