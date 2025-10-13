@@ -26,7 +26,6 @@ export async function loadFriendsPage() {
         }
 
         try {
-            // ✅ Get current user's document
             const currentUserRef = doc(db, "users", currentUser.uid);
             const currentUserSnap = await getDoc(currentUserRef);
 
@@ -45,7 +44,6 @@ export async function loadFriendsPage() {
 
             friendsContainer.innerHTML = "";
 
-            // ✅ Loop through all friends
             for (const friendId of friends) {
                 const friendSnap = await getDoc(doc(db, "users", friendId));
                 if (!friendSnap.exists()) continue;
@@ -72,7 +70,6 @@ export async function loadFriendsPage() {
                 friendsContainer.appendChild(card);
             }
 
-            // ✅ Handle Unfriend
             friendsContainer.addEventListener("click", async (e) => {
                 const btn = e.target.closest(".unfriend-btn");
                 if (!btn) return;
@@ -80,18 +77,15 @@ export async function loadFriendsPage() {
                 const friendId = btn.getAttribute("data-id");
 
                 try {
-                    // Remove friend from current user's list
                     await updateDoc(currentUserRef, {
                         friends: arrayRemove(friendId),
                     });
 
-                    // (Optional) Remove the current user from friend's list too
                     const friendRef = doc(db, "users", friendId);
                     await updateDoc(friendRef, {
                         friends: arrayRemove(currentUser.uid),
                     });
 
-                    // Instantly remove from UI
                     btn.closest(".friend-card").remove();
                 } catch (err) {
                     console.error("Failed to unfriend:", err);

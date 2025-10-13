@@ -28,12 +28,10 @@ export async function loadPeoplePage() {
         }
 
         try {
-            // ✅ Get current user’s document to read their friends
             const currentUserDoc = await getDoc(doc(db, "users", currentUser.uid));
             const currentUserData = currentUserDoc.data() || {};
             const currentFriends = currentUserData.friends || [];
 
-            // ✅ Get all users
             const querySnapshot = await getDocs(collection(db, "users"));
             peopleContainer.innerHTML = "";
 
@@ -41,10 +39,8 @@ export async function loadPeoplePage() {
                 const userData = docSnap.data();
                 const uid = docSnap.id;
 
-                // ❌ Skip the current user
                 if (uid === currentUser.uid) return;
 
-                // ❌ Skip if already friends
                 if (currentFriends.includes(uid)) return;
 
                 const card = document.createElement("div");
@@ -66,7 +62,6 @@ export async function loadPeoplePage() {
                 peopleContainer.appendChild(card);
             });
 
-            // ✅ Handle Add Friend
             peopleContainer.addEventListener("click", async (e) => {
                 const btn = e.target.closest(".add-friend-btn");
                 if (!btn) return;
@@ -77,17 +72,14 @@ export async function loadPeoplePage() {
                     const userRef = doc(db, "users", currentUser.uid);
                     const friendRef = doc(db, "users", friendId);
 
-                    // ✅ Add friend to current user's friends array
                     await updateDoc(userRef, {
                         friends: arrayUnion(friendId),
                     });
 
-                    // (Optional) You can also add current user to friend’s friendRequests
                     await updateDoc(friendRef, {
                         friendRequests: arrayUnion(currentUser.uid),
                     });
 
-                    // ✅ Instantly remove this person from the list
                     btn.closest(".people-card").remove();
                 } catch (error) {
                     console.error("Failed to add friend:", error);

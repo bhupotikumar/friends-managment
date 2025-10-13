@@ -10,6 +10,7 @@ import { loadProfilePage } from "./profile.js";
 import { loadPage, showUserData } from "./utils.js";
 import { loadPeoplePage } from "./people.js";
 import { loadFriendsPage } from "./friends.js";
+import { loadHomePage } from "./home.js";
 
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -45,6 +46,10 @@ window.addEventListener("DOMContentLoaded", () => {
                 await loadPage("friends");
                 loadFriendsPage();
             }
+            else if (activePage === "home") {
+                await loadPage("home");
+                loadHomePage();
+            }
             else {
                 loadPage(activePage);
             }
@@ -73,14 +78,16 @@ document.addEventListener("click", async (e) => {
         await loadProfilePage();
     }
     else if (page === "people") {
-        // Wait for HTML to load first
         await loadPage("people");
-        // Then initialize the JS for it
         loadPeoplePage();
     }
     else if (page === "friends") {
         await loadPage("friends");
         loadFriendsPage();
+    }
+    else if (page === "home") {
+        await loadPage("home");
+        loadHomePage();
     }
     else {
         await loadPage(page);

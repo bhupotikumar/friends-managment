@@ -1,91 +1,9 @@
-* {
-    margin: 0;
-    padding: 0;
-    border: none;
-}
 
-/* Form Styles */
-.form-wrapper {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.form {
-    font-size: large;
-    text-align: center;
-    border-radius: 10px;
-    padding: 2rem;
-    box-shadow: 0 0 10px rgba(3, 213, 250, 0.925);
-}
-
-.form form {
-    margin: 1rem 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.form input {
-    display: block;
-    border: 1px solid gray;
-    width: 20rem;
-    padding: .7rem;
-    margin: 1rem 0;
-    font-size: large;
-}
-
-/* Heading Styles */
-.heading {
-    margin: 1rem;
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* Pointer */
-.pointer {
-    cursor: pointer;
-}
-
-/* Line */
-.line {
-    margin: .5rem 0;
-    border: 1px solid gray;
-}
-
-/* rounded */
-.rounded {
-    width: 2rem;
-    height: 2rem;
-    padding: .5rem;
-    border: 2px solid gray;
-    border-radius: 50%;
-    overflow: hidden;
-    object-fit: cover;
-}
-
-.rounded img {
-    width: 100%;
-    height: 100%;
-}
-
-/* btn */
-.btn {
-    width: auto;
-    padding: 1.5vh 1vw;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: .3rem;
-    background-color: gray;
-    color: black;
-}
 
 
 /* Header Section Styles */
 .header {
-    margin: 1vh auto;
+    margin: 1rem auto;
     width: 90vw;
     display: flex;
     align-items: center;
@@ -97,7 +15,7 @@
     display: flex;
     justify-content: end;
     align-items: center;
-    gap: 1vw;
+    gap: 1rem;
 }
 
 /* Profile */
@@ -161,45 +79,7 @@
 }
 
 /* Home Page Styles */
-.home {
-    width: 90vw;
-    height: 80vh;
-    margin: 0 auto;
-    display: flex;
-    gap: 1rem ;
-}
-.sidebar {
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.post-container {
-    width: 100%;
-    height: 70vh;
-    padding: 1rem;
-    /* border: 2px solid gray; */
-    border-radius: .5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 0 10px rgba(3, 213, 250, 0.925);
-}
 
-.post-container textarea {
-    width: 100%;
-    height: 100%;
-    border: none;
-    outline: none;
-    resize: none;
-    overflow-y: scroll;
-    font-size: 1.4rem;
-}
-
-.feed h1 {
-    font-size: 2rem;
-    text-align: center;
-}
 
 
 

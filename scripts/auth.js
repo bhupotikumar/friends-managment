@@ -82,7 +82,6 @@ export function bindAuthEvents(page) {
 }
 
 // -------------------- Logout --------------------
-// -------------------- Logout --------------------
 export function bindLogout() {
     const logOutButton = document.getElementById("logout-btn");
     if (!logOutButton) {

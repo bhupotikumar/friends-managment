@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Friends Management</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./styles/utilities.css">
+    <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="./styles/people.css">
     <link rel="stylesheet" href="./styles/friends.css">
 </head>
 <body>
 
-    <!-- Authentication container (login/register) -->
     <main id="auth-container"></main>
 
-    <!-- App container (only visible when logged in) -->
     <div id="app-container" style="display:none;">
         <header class="header">
             <div class="profile pointer">
@@ -56,17 +56,11 @@
         <div class="line"></div>
 
         <main id="content">
-            <!-- Dynamic content loads here -->
+            
         </main>
     </div>
 
-    <!-- Firebase SDK -->
     <script type="module" src="./scripts/firebase-init.js"></script>
-    <!-- App script -->
     <script type="module" src="./scripts/script.js"></script>
-    <script type="module" src="./scripts/auth.js"></script>
-    <script type="module" src="./scripts/utils.js"></script>
-    <script type="module" src="./scripts/profile.js"></script>
-    <script type="module" src="./scripts/people.js"></script>
 </body>
 </html>
