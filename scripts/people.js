@@ -53,7 +53,7 @@ export async function loadPeoplePage() {
                              class="w-16 h-16 rounded-full mb-2"/>
                         <strong>${userData.name || "Unknown User"}</strong>
                     </div>
-                    <button class="add-friend-btn bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded"
+                    <button class="add-friend-btn"
                             data-id="${uid}">
                         Add Friend
                     </button>

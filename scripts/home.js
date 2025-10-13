@@ -68,22 +68,19 @@ async function loadPosts(currentUser, feed) {
                 if (!allowedUsers.includes(post.userId)) return; // only show my & friends posts
 
                 const postElement = document.createElement("div");
-                postElement.className = "post-card";
                 postElement.innerHTML = `
-                    <div class="post-card-wrapper">
                         <div class="post-card">
-                        <div class="post-header">
-                            <div class="post-profile">
-                                <img width="200" class="rounded" src="${post.authorPhoto}" alt="User" class="post-author-img">
+                            <div class="post-header">
+                                <div class="post-profile">
+                                    <img width="200" class="rounded" src="${post.authorPhoto}" alt="User" class="post-author-img">
+                                </div>
+                                <div class="name-date-container">
+                                    <strong>${post.authorName}</strong>
+                                    <span class="post-date">${new Date(post.createdAt.seconds * 1000 || post.createdAt).toLocaleString()}</span>
+                                </div>
                             </div>
-                            <div class="name-date-container">
-                                <strong>${post.authorName}</strong>
-                                <span class="post-date">${new Date(post.createdAt.seconds * 1000 || post.createdAt).toLocaleString()}</span>
-                            </div>
+                            <p class="post-content">${post.content}</p>
                         </div>
-                        <p class="post-content">${post.content}</p>
-                    </div>
-                    </div>
                 `;
                 feed.appendChild(postElement);
             });

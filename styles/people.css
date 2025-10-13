@@ -38,3 +38,21 @@
     font-weight: bold;
     text-align: center;
 }
+
+.add-friend-btn {
+    background-color: #066e35;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    margin-top: 0.1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.add-friend-btn:hover {
+    background-color: #168d5b;
+    transform: scale(1.05);
+}

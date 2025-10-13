@@ -38,7 +38,7 @@ export async function loadFriendsPage() {
             const friends = userData.friends || [];
 
             if (friends.length === 0) {
-                friendsContainer.innerHTML = "<p>You have no friends yet 😢</p>";
+                friendsContainer.innerHTML = "<p>You have no friends yet</p>";
                 return;
             }
 
@@ -61,7 +61,7 @@ export async function loadFriendsPage() {
                              class="w-16 h-16 rounded-full mb-2"/>
                         <strong>${friendData.name || "Unknown User"}</strong>
                     </div>
-                    <button class="unfriend-btn bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
+                    <button class="unfriend-btn"
                             data-id="${friendId}">
                         Unfriend
                     </button>
